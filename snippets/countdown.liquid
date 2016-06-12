@@ -1,0 +1,32 @@
+<!-- countdown.liquid -->
+{% if section_number > 1 and number_of_index_sections > 1 %}
+  <hr class="hr--medium hr--clear">
+{% endif %}
+
+{% assign countdown_full_width = true %}
+{% assign countdown_full_height = false %}
+{% assign countdown_first_on_page = false %}
+
+{% if section_number == 1 %}
+  {% assign countdown_first_on_page = true %}
+  {% assign countdown_full_height = true %}
+{% endif %}
+
+<div id="countdown{% if countdown_full_height %} countdown--full_height{% endif %}{% if countdown_first_on_page %} countdown--first{% endif %}">
+	<div>
+    <span class="days"></span>
+    <div class="smalltext">{{ 'home_page.countdown.days' | t }}</div>
+  </div>
+  <div>
+    <span class="hours"></span>
+    <div class="smalltext">{{ 'home_page.countdown.hours' | t }}</div>
+  </div>
+  <div>
+    <span class="minutes"></span>
+    <div class="smalltext">{{ 'home_page.countdown.minutes' | t }}</div>
+  </div>
+  <div>
+    <span class="seconds"></span>
+    <div class="smalltext">{{ 'home_page.countdown.seconds' | t }}</div>
+  </div>
+</div>

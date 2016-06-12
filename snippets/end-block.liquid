@@ -1,0 +1,38 @@
+<!-- end-block.liquid -->
+{% comment %}
+	Displays a static div at the end of the document
+{% endcomment %}
+
+{% if section_number > 1 and number_of_index_sections > 1 %}
+  <hr class="hr--medium hr--clear">
+{% endif %}
+
+<div class="end-block grid__item small--hide">
+	<div class="end-block_text grid__item large--one-half medium--one-half">
+		<div class="end-block_heading">
+			<p>{{ 'home_page.end-block.heading' | t }}</p>
+		</div>
+		<div class="end-block_subheading">
+			<p>{{ 'home_page.end-block.text' | t }}</p>
+		</div>
+	</div>
+	<div class="end-block_image grid__item large--one-half medium--one-half">
+		<img src="{{ 'home_page.end-block.image' | t }}" alt="">
+	</div>
+</div>
+
+<div class="end-block grid__item large--hide medium--hide">
+	<div class="end-block_text">
+		<div class="end-block_heading">
+			<p>{{ 'home_page.end-block.heading' | t }}</p>
+		</div>
+		<div class="end-block_subheading">
+			<p>{{ 'home_page.end-block.text' | t }}</p>
+		</div>
+	</div>
+	<div class="end-block_image">
+		<img src="{{ 'home_page.end-block.image' | t }}" alt="">
+	</div>
+</div>
+
+<hr class="hr--medium hr--clear">

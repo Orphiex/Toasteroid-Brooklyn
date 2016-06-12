@@ -1,0 +1,56 @@
+{% unless settings.facebook_url == blank %}
+	<!-- Facebook -->
+	<a href="{{ settings.facebook_url }}" title="Follow us on Facebook" target="_blank"><span class="icon icon-facebook"></span></a>
+{% endunless %}
+{% unless settings.twitter_url == blank %}
+	<!-- Twitter -->
+	<a href="{{ settings.twitter_url }}" title="Follow us on Twitter" target="_blank"><span class="icon icon-twitter"></span></a>
+{% endunless %}
+{% unless settings.pinterest_url == blank %}
+	<!-- Pinterest -->
+	<a href="{{ settings.pinterest_url }}" title="Follow us on Pinterest" target="_blank"><span class="icon icon-pinterest"></span></a>
+{% endunless %}
+{% unless settings.googleplus_url == blank %}
+	<!-- Google + -->
+	<a href="{{ settings.googleplus_url }}" title="Follow us on Google+" target="_blank"><span class="icon icon-google"></span></a>
+{% endunless %}
+{% unless settings.instagram_url == blank %}
+	<!-- Instagram -->
+	<a href="{{ settings.instagram_url }}" title="Follow us on Instagram" target="_blank"><span class="icon icon-instagram"></span></a>
+{% endunless %}
+{% unless settings.linkedin_url == blank %}
+	<!-- LinkedIn -->
+	<a href="{{ settings.linkedin_url }}" title="Follow us on linkedin" target="_blank"><span class="icon icon-linkedin"></span></a>
+{% endunless %}
+{% unless settings.flickr_url == blank %}
+	<!-- Flickr -->
+	<a href="{{ settings.flickr_url }}" title="Follow us on Flickr" target="_blank"><span class="icon icon-flickr"></span></a>
+{% endunless %}
+{% unless settings.yelp_url == blank %}
+	<!-- Yelp -->
+	<a href="{{ settings.yelp_url }}" title="Look us up on Yelp" target="_blank"><span class="icon icon-yelp"></span></a>
+{% endunless %}
+{% unless settings.vimeo_url == blank %}
+	<!-- Vimeo -->
+	<a href="{{ settings.vimeo_url }}" title="Follow us on Vimeo" target="_blank"><span class="icon icon-vimeo"></span></a>
+{% endunless %}
+{% unless settings.youtube_url == blank %}
+	<!-- YouTube -->
+	<a href="{{ settings.youtube_url }}" title="Follow us on YouTube" target="_blank"><span class="icon icon-youtube"></span></a>
+{% endunless %}
+{% unless settings.tumblr_url == blank %}
+	<!-- Tumblr -->
+	<a href="{{ settings.tumblr_url }}" title="Come visit our blog" target="_blank"><span class="icon icon-tumblr"></span></a>
+{% endunless %}
+{% unless settings.wordpress_url == blank %}
+	<!-- Wordpress -->
+	<a href="{{ settings.wordpress_url }}" title="Come visit our blog" target="_blank"><span class="icon icon-wordpress"></span></a>
+{% endunless %}
+{% unless settings.featured_blog == blank %}
+	<!-- Featured Blog -->
+	<a href="/blogs/{{ settings.featured_blog }}.atom" title="Subscribe to our blog" target="_blank"><span class="icon icon-rss"></span></a>
+{% endunless %}
+{% unless settings.contact_email == blank %}
+	<!-- Contact Email -->
+	<a href="mailto:{{ settings.contact_email }}" title="Email us" target="_blank"><span class="shopify-social-icon-email{{ settings.social_icons_style }}"></span></a>
+{% endunless %}

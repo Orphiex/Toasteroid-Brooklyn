@@ -1,0 +1,48 @@
+<!-- gallery.liquid -->
+{% comment %}
+	Displays a gallery of different images
+{% endcomment %}
+
+{% if section_number > 1 and number_of_index_sections > 1 %}
+  <hr class="hr--medium hr--clear">
+{% endif %}
+
+<div class="grid__item">
+  <div class="green-bg grid__item large--hide medium-down--one-whole">
+    <h3>DOODLE ON YOUR TOAST.</h3>
+    <p>Lorem Ipsum Etc.</p>
+  </div>
+
+  <div id="toaster-gallery-images" class="grid__item large--three-fifths medium-down--one-whole">
+    <div id="toaster-background">
+      <img src="http://i.imgur.com/uEcJWaJ.png" alt="">
+    </div>
+
+    <ul class="rslides" id="slider1" >
+      <li><img src="http://i.imgur.com/dAPdQhj.png" alt=""></li>
+      <li><img src="http://i.imgur.com/dAPdQhj.png" alt=""></li>
+    </ul>
+  </div>
+
+  <div class="gallery-data grid__item large--two-fifths">
+    <div class="green-bg medium-down--hide">
+      <h3>DOODLE ON YOUR TOAST.</h3>
+      <p>Lorem Ipsum Etc.</p>
+    </div>
+
+    <!-- Slideshow Pager -->
+    <ul id="slider3-pager" class="grid__item large--two-fifths medium-down--one-whole">
+      <li><a href="#"><img src="" alt=""></a></li>
+      <li><a href="#"><img src="" alt=""></a></li>
+    </ul>
+  </div>
+</div>
+
+<script type="text/javascript">
+  $(function() {
+    $("#slider1").responsiveSlides({
+    	auto: false,
+    	manualControls: '#slider3-pager',
+    });
+  });
+</script>

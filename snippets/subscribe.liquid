@@ -1,0 +1,158 @@
+<!-- subscribe.liquid -->
+{% comment %}
+	This full-page splash serves as a cover section for the website during the pre-launch period.
+{% endcomment %}
+
+{% if section_number > 1 and number_of_index_sections > 1 %}
+  <hr class="hr--medium hr--clear">
+{% endif %}
+
+
+{% assign subscribe_full_width = true %}
+{% assign subscribe_full_height = false %}
+{% assign subscribe_first_on_page = false %}
+{% assign subscribe_parallax = true %}
+
+{% comment %}
+  If 'subscribe' is first section on homepage, add class that sets
+  negative top-margin for alignment and force full height.
+{% endcomment %}
+
+{% if section_number == 1 %}
+  {% assign subscribe_first_on_page = true %}
+  {% assign subscribe_full_height = true %}
+{% endif %}
+
+<!-- Subscribe is full width, so close .wrapper -->
+{% if subscribe_full_width %}
+  </div>
+{% endif %}
+
+<div class="subscribe{% if subscribe_full_height %} subscribe--full-height{% endif %}{% if subscribe_first_on_page %} subscribe--first{% endif %} medium-down--hide" id="Subscribe"{% if subscribe_full_height %} data-fullscreen="true"{% endif %}{% if hero_parallax %} data-parallax="true"{% endif %}>
+	<div class="subscribe_field grid__item large--one-half medium--one-half">
+		<div class="subscribe_header">
+			<h2>{{ 'home_page.subscribe.subscribe_header' | t }}</h2>
+		</div>
+		{% if settings.newsletter_form_action != blank %}
+      {% assign form_action = settings.newsletter_form_action %}
+      <form action="{{ form_action }}" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank">
+        <label for="Email" class="newsletter__label hidden-label">{{ 'general.newsletter_form.newsletter_email' | t }}</label>
+        <div class="newsletter--form">
+          <div class="input-header">
+            <h3>{{ 'home_page.subscribe.subscribe_comment' | t }}</h3>
+          </div>
+          <div class="input-group">
+            <input type="email" value="{% if customer %}{{ customer.email }}{% endif %}" placeholder="{{ 'general.newsletter_form.newsletter_email' | t }}" name="EMAIL" id="Email" class="input-group-field newsletter__input" autocorrect="off" autocapitalize="off">
+            <span class="input-group-btn">
+              <button type="submit" class="btn newsletter__submit" name="subscribe" id="Subscribe">
+                <span class="newsletter__submit-text--large">{{ 'general.newsletter_form.submit' | t }}</span>
+                <span class="newsletter__submit-text--small">
+                  <span class="icon icon-arrow-right" aria-hidden="true"></span>
+                </span>
+              </button>
+            </span>
+          </div>
+        </div>
+      </form>
+    {% else %}
+      {% form 'customer' %}
+        {{ form.errors | default_errors }}
+        {% if form.posted_successfully? %}
+          <div class="newsletter--form">
+            <div class="note form-success">{{ 'general.newsletter_form.newsletter_confirmation' | t }}</div>
+          </div>
+        {% else %}
+          <label for="Email" class="newsletter__label hidden-label">{{ 'general.newsletter_form.newsletter_email' | t }}</label>
+          <input type="hidden" name="contact[tags]" value="newsletter">
+          <div class="newsletter--form">
+            <div class="input-header">
+              <h3>{{ 'home_page.subscribe.subscribe_comment' | t }}</h3>
+            </div>
+            <div class="input-group">
+              <input type="email" value="{% if customer %}{{ customer.email }}{% endif %}" placeholder="{{ 'general.newsletter_form.newsletter_email' | t }}" name="contact[email]" id="Email" class="input-group-field newsletter__input" autocorrect="off" autocapitalize="off">
+              <span class="input-group-btn">
+                <button type="submit" class="btn newsletter__submit" name="commit" id="Subscribe">
+                  <span class="newsletter__submit-text--large">{{ 'general.newsletter_form.submit' | t }}</span>
+                  <span class="newsletter__submit-text--small">
+                    <span class="icon icon-arrow-right" aria-hidden="true"></span>
+                  </span>
+                </button>
+              </span>
+            </div>
+          </div>
+        {% endif %}
+      {% endform %}
+    {% endif %}
+	</div>
+	<div class="subscribe_image grid__item large--one-half medium--one-half">
+		<img id="top-half-a" class="img-center" src="//cdn.shopify.com/s/files/1/1302/8503/t/3/assets/toast-01@3x.png?17010036322016523391" alt="">
+		<img id="bottom-half-a" class="img-center" src="//cdn.shopify.com/s/files/1/1302/8503/t/3/assets/toaster_outline@3x.png?17010036322016523391" alt="">
+	</div>
+</div>
+
+<div class="subscribe{% if subscribe_full_height %} subscribe--full-height{% endif %}{% if subscribe_first_on_page %} subscribe--first{% endif %} large--hide" id="Subscribe"{% if subscribe_full_height %} data-fullscreen="true"{% endif %}>
+	<div class="subscribe_field grid__item medium-down--one-whole">
+		<div class="subscribe_header">
+			<h2>{{ 'home_page.subscribe.subscribe_header' | t }}</h2>
+		</div>
+		<div class="subscribe_image grid__item medium-down--one-whole">
+			<img id="top-half-b" class="img-center" src="//cdn.shopify.com/s/files/1/1302/8503/t/3/assets/toast-01@3x.png?17010036322016523391" alt="">
+			<img id="bottom-half-b" class="img-center" src="//cdn.shopify.com/s/files/1/1302/8503/t/3/assets/toaster_outline@3x.png?17010036322016523391" alt="">
+		</div>
+		{% if settings.newsletter_form_action != blank %}
+      {% assign form_action = settings.newsletter_form_action %}
+      <form action="{{ form_action }}" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank">
+        <label for="Email" class="newsletter__label hidden-label">{{ 'general.newsletter_form.newsletter_email' | t }}</label>
+        <div class="newsletter--form">
+        	<div class="input-header">
+        		<h3>{{ 'home_page.subscribe.subscribe_comment' | t }}</h3>
+        	</div>
+          <div class="input-group mobile-subscribe-field">
+            <input type="email" value="{% if customer %}{{ customer.email }}{% endif %}" placeholder="{{ 'general.newsletter_form.newsletter_email' | t }}" name="EMAIL" id="Email" class="input-group-field newsletter__input" autocorrect="off" autocapitalize="off">
+            <span class="input-group-btn">
+              <button type="submit" class="btn newsletter__submit" name="subscribe" id="Subscribe">
+                <span class="newsletter__submit-text--large">{{ 'general.newsletter_form.submit' | t }}</span>
+                <span class="newsletter__submit-text--small">
+                  <span class="icon icon-arrow-right" aria-hidden="true"></span>
+                </span>
+              </button>
+            </span>
+          </div>
+        </div>
+      </form>
+    {% else %}
+      {% form 'customer' %}
+        {{ form.errors | default_errors }}
+        {% if form.posted_successfully? %}
+          <div class="newsletter--form">
+            <div class="note form-success">{{ 'general.newsletter_form.newsletter_confirmation' | t }}</div>
+          </div>
+        {% else %}
+          <label for="Email" class="newsletter__label hidden-label">{{ 'general.newsletter_form.newsletter_email' | t }}</label>
+          <input type="hidden" name="contact[tags]" value="newsletter">
+          <div class="newsletter--form">
+	          <div class="input-header">
+	        		<h3>{{ 'home_page.subscribe.subscribe_comment' | t }}</h3>
+	        	</div>
+	          <div class="input-group mobile-subscribe-field">
+              <input type="email" value="{% if customer %}{{ customer.email }}{% endif %}" placeholder="{{ 'general.newsletter_form.newsletter_email' | t }}" name="contact[email]" id="Email" class="input-group-field newsletter__input" autocorrect="off" autocapitalize="off">
+              <span class="input-group-btn">
+                <button type="submit" class="btn newsletter__submit" name="commit" id="Subscribe">
+                  <span class="newsletter__submit-text--large">{{ 'general.newsletter_form.submit' | t }}</span>
+                  <span class="newsletter__submit-text--small">
+                    <span class="icon icon-arrow-right" aria-hidden="true"></span>
+                  </span>
+                </button>
+              </span>
+            </div>
+          </div>
+        {% endif %}
+      {% endform %}
+    {% endif %}
+	</div>
+</div>
+
+<!-- Reopen .wrapper after full-width subscribe -->
+{% if subscribe_full_width %}
+  <div class="wrapper">
+{% endif %}

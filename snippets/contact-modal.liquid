@@ -1,0 +1,39 @@
+  <div id="btn-close-modal" class="close-contact_modal">
+    <img class="closebt" src="{{ 'closebt.svg' | asset_url }}" alt="placeholder">
+  </div>
+  <div class="modal-content">
+    {% form 'contact' %}
+
+    {% if form.errors %}
+    <div class="errorForm feedback">
+      <!-- {{ form.errors.size }} or {{ form.errors | size }} -->
+      <p>Your contact form has {{ form.errors | size | pluralize: ‘an error’, ‘a few errors’ }}. To submit your form, make the following changes and try again:</p>
+      {% for field in form.errors %}
+        <p>The {{ field | capitalize | replace: 'Body', 'Message' }} field {{ form.errors.messages[field] }}.</p>
+      {% endfor %}
+    </div>
+    {% endif %}
+
+    {% unless form.posted_successfully? %}
+    <div id="contactFormWrapper">
+      <p>
+        <input type="text" required id="contactFormName" class="contact_input contact_input_field contact_input_string" name="contact[name]" placeholder="{{ 'contact.form.name' | t }}">
+      </p>
+      <p>
+        <input type="email" required id="contactFormEmail" class="contact_input contact_input_field contact_input_string" name="contact[email]" placeholder="{{ 'contact.form.email' | t }}">
+      </p>
+      <p>
+        <textarea required rows="5" id="contactFormMessage" class="contact_input contact_input_field contact_input_text" name="contact[body]" placeholder="{{ 'contact.form.message' | t }}"></textarea>
+      </p>
+      <p>
+        <input type="submit" id="contactFormSubmit" class="contact_input" value="{{ 'contact.form.send' | t }}" />
+      </p>
+    </div>
+    {% else %}
+      <div class="successForm feedback">
+        {{ 'contact.form.post_success' | t }}
+      </div>
+    {% endunless %}
+
+    {% endform %}
+  </div>

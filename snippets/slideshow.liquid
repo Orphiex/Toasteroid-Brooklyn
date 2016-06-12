@@ -1,0 +1,76 @@
+<!-- slideshow.liquid -->
+{% comment %}
+  Displays a user-controlled scrolling gallery of different images
+{% endcomment %}
+
+{% if section_number > 1 and number_of_index_sections > 1 %}
+  <hr class="hr--medium hr--clear">
+{% endif %}
+
+<div class="small--hide">
+  <div class="slideshow-container small">
+    <div class="slideshow-blurb">
+      <div class="slideshow-text">
+        <p>{{ 'home_page.slideshow.slideshow_text' | t }}</p>
+      </div>
+      <div class="slideshow-subtext">
+        <p>{{ 'home_page.slideshow.slideshow_subtext' | t }}</p>
+      </div>
+    </div>
+    <div class="mySlides fade">
+      <img src="{{ 'home_page.slideshow.slide_1' | t }}" style="width:40%">
+    </div>
+
+    <div class="mySlides fade">
+      <img src="{{ 'home_page.slideshow.slide_2' | t }}" style="width:40%">
+    </div>
+
+    <div class="mySlides fade">
+      <img src="{{ 'home_page.slideshow.slide_3' | t }}" style="width:100%">
+    </div>
+
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+  </div>
+  <br>
+  {% comment %}
+  <div style="text-align:center">
+    <span class="dot" onclick="currentSlide(1)"></span> 
+    <span class="dot" onclick="currentSlide(2)"></span> 
+    <span class="dot" onclick="currentSlide(3)"></span> 
+  </div>
+  {% endcomment %}
+</div>
+
+<div class="large--hide medium--hide">
+  
+</div>
+
+<script type="text/javascript">
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length} ;
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+}
+</script>
